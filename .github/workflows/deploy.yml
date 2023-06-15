@@ -50,7 +50,6 @@ jobs:
           push: true
           tags: taewakim/need_admin_server:latest
 
-
   deploy:
     runs-on: [ self-hosted, label-go ]
     needs: build
@@ -58,7 +57,7 @@ jobs:
     steps:
       - name: Docker Pull
         run: |
-          docker stop admin_server && docker rm admin_server
-          docker rmi taewakim/need_admin_server:latest
-          docker image pull taewakim/need_admin_server:latest
-          docker run -dp 8080:8080 --name admin_server taewakim/need_admin_server:latest
+          sudo docker stop admin_server && sudo docker rm admin_server
+          sudo docker rmi taewakim/need_admin_server:latest
+          sudo docker image pull taewakim/need_admin_server:latest
+          sudo docker run -dp 8080:8080 --name admin_server taewakim/need_admin_server:latest
