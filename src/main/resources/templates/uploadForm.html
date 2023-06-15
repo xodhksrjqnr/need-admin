@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <form th:action="@{/upload}" th:object="${form}" method="post">
+        <table>
+            <tbody>
+                <tr>
+                    <td>제목</td>
+                    <td><input type="text" th:field="*{title}"></td>
+                </tr>
+                <tr>
+                    <td>썸네일</td>
+                    <td><input type="text" th:field="*{thumbnail}"></td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td><input type="text" th:field="*{url}"></td>
+                </tr>
+                <tr>
+                    <td>직업</td>
+                    <td><input type="text" th:field="*{job}"></td>
+                </tr>
+                <tr>
+                    <td>분야</td>
+                    <td><input type="text" th:field="*{benefit}"></td>
+                </tr>
+                <tr>
+                    <td>지역</td>
+                    <td><input type="text" th:field="*{administrativeDistrict}"></td>
+                </tr>
+                <tr>
+                    <td>성별</td>
+                    <td><input type="text" th:field="*{sex}"></td>
+                </tr>
+                <tr>
+                    <td>종료일</td>
+                    <td><input type="datetime-local" th:field="*{closingDate}"></td>
+                </tr>
+                <tr>
+                    <td><button type="submit">등록</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>
