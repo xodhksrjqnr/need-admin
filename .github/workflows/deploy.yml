@@ -1,0 +1,65 @@
+name: main-deploy
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - './README.md'
+
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - './README.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Chackout
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Set up Application Configuration
+        run: |
+          mkdir ./src/main/resources
+          echo "${{ secrets.APPLICATION_CONFIG }}" > ./src/main/resources/application.yml
+
+      - name: Build
+        run: ./gradlew build -x test
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Docker Hub Login
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Publish Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: taewakim/need_admin_server:latest
+
+  deploy:
+    runs-on: [ self-hosted, label-go ]
+    needs: build
+
+    steps:
+      - name: Docker Pull
+        run: |
+          docker stop admin_server && docker rm admin_server
+          docker rmi taewakim/need_admin_server:latest
+          docker image pull taewakim/need_admin_server:latest
+          docker run -dp 8080:8080 --name admin_server taewakim/need_admin_server:latest
