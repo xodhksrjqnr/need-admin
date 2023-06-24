@@ -4,16 +4,14 @@ on:
   pull_request:
     branches:
       - main
-    paths-ignore:
-      - './github/**'
-      - '*.md'
+    paths:
+      - 'src/**'
 
   push:
     branches:
       - main
-    paths-ignore:
-      - './github/**'
-      - '*.md'
+    paths:
+      - 'src/**'
 
 jobs:
   build:
