@@ -1,4 +1,4 @@
-# need-admin
+# Need-Admin
 
 ## 역할
 
@@ -14,12 +14,13 @@
 - Docker
 - AWS EC2
 
-## 구현 기능
+## 프로젝트 소개
 
-- Post 도메인 구현 (필터 조회, 등록, 공개 여부 변경 기능 구현)
-- Job 도메인 구현 (저장 및 전체 조회 기능 구현)
-- Benefit 도메인 구현 (저장 및 전체 조회 기능 구현)
-- API 서버 구현
+- Post 도메인 구현 (Spring Data JPA를 이용한 전체 조회, 등록, 공개 여부 변경 기능 구현)
+- Job 도메인 구현 (Spring Data JPA를 이용한 전체 조회, 저장 기능 구현)
+- Benefit 도메인 구현 (Spring Data JPA를 이용한 전체 조회, 저장 기능 구현)
+- Post의 공개 여부 변경 API 설계
+- 메인 페이지 구현
 - AWS EC2를 이용한 클라우드 서비스 운영
 - Docker, Github Actions를 이용한 빌드 및 배포 자동화
 - Github Actions, Slack을 이용한 빌드 및 배포 완료 알림
