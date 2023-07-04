@@ -25,3 +25,7 @@
 - Docker, Github Actions를 이용한 빌드 및 배포 자동화
 - Github Actions, Slack을 이용한 빌드 및 배포 완료 알림
 - DB 서버의 MySQL 외부 접속
+
+## 구조
+
+<img width="843" alt="스크린샷 2023-07-04 오후 2 38 08" src="https://github.com/xodhksrjqnr/need-backend/assets/48250370/c65d2001-2972-4ed0-8afe-79da70f5ac03">
