@@ -13,6 +13,10 @@ import taewan.needAdmin.domain.job.service.JobServiceImpl;
 import taewan.needAdmin.domain.post.repository.PostRepository;
 import taewan.needAdmin.domain.post.service.PostService;
 import taewan.needAdmin.domain.post.service.PostServiceImpl;
+import taewan.needAdmin.domain.site.repository.SiteRepository;
+import taewan.needAdmin.domain.site.service.SiteService;
+import taewan.needAdmin.domain.site.service.SiteServiceImpl;
+import taewan.needAdmin.global.utils.AutoUpload;
 
 @Configuration
 @EnableJpaAuditing
@@ -22,6 +26,7 @@ public class AppConfig {
     private final PostRepository postRepository;
     private final BenefitRepository benefitRepository;
     private final JobRepository jobRepository;
+    private final SiteRepository siteRepository;
 
     @Bean
     public PostService postService() {
@@ -36,5 +41,10 @@ public class AppConfig {
     @Bean
     public BenefitService benefitService() {
         return new BenefitServiceImpl(benefitRepository);
+    }
+
+    @Bean
+    public SiteService siteService() {
+        return new SiteServiceImpl(siteRepository, new AutoUpload());
     }
 }
