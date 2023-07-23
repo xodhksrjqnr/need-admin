@@ -19,9 +19,11 @@ public class Site {
     private String subjectTag;
     private String recentPostTag;
     private String dateTag;
+    private String postViewTag;
 
     @Builder
-    private Site(String name, String url, String postsTag, String pageListTag, String subjectTag, String recentPostTag, String dateTag) {
+    private Site(String name, String url, String postsTag, String pageListTag, String subjectTag,
+                 String recentPostTag, String dateTag, String postViewTag) {
         this.name = name;
         this.url = url;
         this.postsTag = postsTag;
@@ -29,6 +31,7 @@ public class Site {
         this.subjectTag = subjectTag;
         this.recentPostTag = recentPostTag;
         this.dateTag = dateTag;
+        this.postViewTag = postViewTag;
     }
 
     public SiteInfoDto toInfoDto() {
@@ -41,6 +44,7 @@ public class Site {
                 .subjectTag(subjectTag)
                 .recentPostTag(recentPostTag)
                 .dateTag(dateTag)
+                .postViewTag(postViewTag)
                 .build();
     }
 }

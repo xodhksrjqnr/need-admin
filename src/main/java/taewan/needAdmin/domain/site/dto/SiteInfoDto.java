@@ -18,4 +18,5 @@ public class SiteInfoDto {
     private String subjectTag;
     private String recentPostTag;
     private String dateTag;
+    private String postViewTag;
 }

@@ -16,7 +16,6 @@ import taewan.needAdmin.domain.post.service.PostServiceImpl;
 import taewan.needAdmin.domain.site.repository.SiteRepository;
 import taewan.needAdmin.domain.site.service.SiteService;
 import taewan.needAdmin.domain.site.service.SiteServiceImpl;
-import taewan.needAdmin.global.utils.AutoUpload;
 
 @Configuration
 @EnableJpaAuditing
@@ -45,6 +44,6 @@ public class AppConfig {
 
     @Bean
     public SiteService siteService() {
-        return new SiteServiceImpl(siteRepository, new AutoUpload());
+        return new SiteServiceImpl(siteRepository, postRepository);
     }
 }

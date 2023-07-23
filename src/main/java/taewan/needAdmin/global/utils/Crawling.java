@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AutoUpload {
+public class Crawling {
 
     private static final ThreadLocal<Map<String, String>> foundPosts = new ThreadLocal<>();
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
